@@ -1,0 +1,169 @@
+<% include partials/header %>
+<body>
+
+<!-- сайт с lorem Ipsum по типу задания "Создать Сайт-Портфолио" Яндекс-ШРИ в Минске в 2019г. -->
+<!-- используемые инструменты: ejs->html,  gulp, sass->css, flexbox/grid(что-то из этого?)
+mobile-first! + БЭМ!
+ не используется js(т.к по заданию не нужно), bootstrap(делаю сайт на чистом html/css без фреймворков!)
+-->
+
+<div class="main">
+    <div class="tier1">
+        <div class="personal">
+            <img src="img/drache-art.jpg" class="personal__photo" />
+            <h2 class="personal__name">Ren Kaio</h2>
+            <p class="personal__about">Frontend beginner</p>
+            <a class="personal__email-btn" href="mailto:ren.kaio@yandex.ru">Send me an email</a>
+        </div>
+
+    </div>
+    <div class="tier2">
+        <div class="expects">
+            <h2 class="expects__header">Expectations</h2>
+            <ul class="expects__list">
+                <li class="expects__list-item">
+                    <h3 class="expects__list-item-heading">Freedom
+                        <span class="expects__switch-el expects__switch-el-open  ">+</span>
+                        <span class="expects__switch-el expects__switch-el-close">x</span>
+                    </h3>
+                    <div class="expects__list-item-content hidden">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                </li>
+                <li class="expects__list-item">
+                    <h3 class="expects__list-item-heading">Equality
+                        <span class="expects__switch-el expects__switch-el-open ">+</span>
+                        <span class="expects__switch-el expects__switch-el-close">x</span>
+                    </h3>
+                    <div class="expects__list-item-content hidden">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                </li>
+                <li class="expects__list-item">
+                    <h3 class="expects__list-item-heading">Brotherhood
+                        <span class="expects__switch-el expects__switch-el-open ">+</span>
+                        <span class="expects__switch-el expects__switch-el-close ">x</span>
+                    </h3>
+                    <div class="expects__list-item-content hidden">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                </li>
+                <li class="expects__list-item">
+                    <h3 class="expects__list-item-heading">Recruitment
+                        <span class="expects__switch-el expects__switch-el-open ">+</span>
+                        <span class="expects__switch-el expects__switch-el-close">x</span>
+                    </h3>
+                    <div class="expects__list-item-content hidden">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tier3">
+        <div class="portfolio">
+            <h2 class="portfolio__heading">Best Works</h2>
+            <h3 class="portfolio__subheading">My best works will be gathered here</h3>
+
+            <div class="portfolio__work">
+                <h4 class="work-title">Work 1</h4>
+                <p class="work-link-container">
+                    <a class="work-link" href="#">http://http-link-to-work</a>
+                </p>
+                <figure class="work-preview">
+                    <p class="preview-pic-container">
+                        <img class="preview-pic" src="img/kosmos-art.jpg"/>
+                    </p>
+                <figcaption class="work-desc">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                </figcaption>
+                    <ul class="nav-bullets">
+                        <li class="bullet active"></li>
+                        <li class="bullet"></li>
+                        <li class="bullet"></li>
+                        <li class="bullet"></li>
+                    </ul>
+                </figure>
+            </div>
+
+            <div class="portfolio__work">
+                <h4 class="work-title">Work 2</h4>
+                <p class="work-link-container">
+                    <a class="work-link" href="#">http://http-link-to-work</a>
+                </p>
+                <figure class="work-preview">
+                    <p class="preview-pic-container">
+                        <img class="preview-pic" src="img/kosmos-art.jpg"/>
+                    </p>
+                <figcaption class="work-desc">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                </figcaption>
+                    <ul class="nav-bullets">
+                        <li class="bullet active"></li>
+                        <li class="bullet"></li>
+                        <li class="bullet"></li>
+                        <li class="bullet"></li>
+                    </ul>
+                </figure>
+            </div>
+
+            <div class="portfolio__work">
+                <h4 class="work-title">Work 3</h4>
+                <p class="work-link-container">
+                    <a class="work-link" href="#">http://http-link-to-work</a>
+                </p>
+                <figure class="work-preview">
+                    <p class="preview-pic-container">
+                        <img class="preview-pic" src="img/kosmos-art.jpg"/>
+                    </p>
+                <figcaption class="work-desc">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                </figcaption>
+                    <ul class="nav-bullets">
+                        <li class="bullet active"></li>
+                        <li class="bullet"></li>
+                        <li class="bullet"></li>
+                        <li class="bullet"></li>
+                    </ul>
+                </figure>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="tier4">
+        <div class="contact">
+            <h3 class="contact__heading">Contact info</h3>
+            <ul class="contact__links">
+                <li class="link"><a href="http://facebook.com"><img class="link-icon" src="img/facebook-icon.png"></a> </li>
+                <li class="link"><a href="http://twitter.com"><img class="link-icon" src="img/twitter-icon.png"></a> </li>
+                <li class="link"><a href="http://telegram.com"><img class="link-icon" src="img/telegram-icon.png"></a> </li>
+            </ul>
+            <p class="contact__info">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+                sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+            </p>
+            <form action="#" class="contact__form">
+                <label><input placeholder="Your name" name="name" class="name" /></label>
+                <label><input placeholder="Your email" name="email" class="email" /></label>
+                    <label>
+                        <textarea name="message" id="message" class="message"> Your Message
+                        </textarea>
+                    </label>
+            <button class="btn btn-attach">Attach SRS</button><!-- SRS = Software Requirement Specification Document  -->
+            <input type="submit" class="btn " value="Send" />
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+
+<% include partials/footer %>

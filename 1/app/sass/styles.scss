@@ -1,0 +1,545 @@
+// подключаем необходимые шрифты:
+@font-face {
+  font-family: "Montserrat-ExtraBold"; //Montserrat-ExtraBold
+  src: url("../fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("../fonts/PT_Sans-Web-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "PT Mono";
+  src: url("../fonts/PTM55FT.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+// @color-mixins:
+$bg1: #25282A;
+$bg2: #eee;
+$main-bg: #fff;
+$clr1: #000;
+$clr2: #25282a;
+$clr3:#fff;
+$clr4: #0059d9;
+$opclr4: opacify(#0059d9, .7);
+$clr5: #71abff;
+$clr6: #778087;
+$btn-bg: #0059d9;
+$btn-hover-bg: #000;
+// задаем повторяющиеся элементы:
+@mixin heading-style {
+  font: 32px/36px "Montserrat-ExtraBold", sans-serif;
+  color: $clr1;
+  @media(min-width: 600px) { // т.к mobile-first - то мы сначала указываем параметры для маленьких размеров экрана, а затем в @media прописываем для бОльших размеров
+    font: 40px/44px "Montserrat-ExtraBold", sans-serif ;
+  }
+}
+
+@mixin subheading-style {
+  font: 32px/36px "Montserrat-ExtraBold", sans-serif;
+  color: $clr1;
+
+}
+
+@mixin large-text-style {
+  font: 18px/24px "Montserrat-ExtraBold", sans-serif;
+  color: $clr2;
+
+}
+
+  @mixin btn-text-style {
+    font: 14px "Montserrat-ExtraBold", sans-serif;
+    font-weight: lighter;
+    color: $clr3;
+  }
+
+  @mixin user-input-style {
+    font: 18px/24px "PT Sans", sans-serif;
+    color: $clr1;
+  }
+
+  @mixin text-style1 {
+    font: 14px/20px "PT Mono", sans-serif;
+    color: $clr1;
+  }
+
+  @mixin text-style2 {
+    font: 14px/20px "PT Sans", sans-serif;
+    color: $clr1;
+  }
+
+
+// other mixins:
+
+// button style
+@mixin btn-default-style {
+  background: $btn-bg;
+  padding: .5rem 1.5rem;
+  opacity: 1;
+  text-decoration: none;
+  @include btn-text-style;
+  color: $clr3;
+  border-radius: .4rem;
+  transition: background-color 1s;
+  &:hover {
+    background: $btn-hover-bg;
+  }
+  &:active { //при нажатии
+    background: $opclr4;
+  }
+
+}
+
+
+
+@mixin input-style {
+  width: 90%;
+  padding: .3rem;
+  border:1px solid gray;
+  border-radius: 6px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  @media(min-width: 650px) {
+    width: 40%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+}
+
+
+
+
+  body {
+    background: darken(#123, 7%);
+    margin: 0;
+  }
+
+  .main {
+    // т.к mobile-first - то мы сначала указываем параметры для маленьких размеров экрана, а затем в @media прописываем для бОльших размеров
+    margin-left: 0;
+    margin-right: 0;
+
+    @media(max-width: 600px) and (min-width: 320px) {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    @media(max-width: 1000px) and (min-width: 600px) {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+    @media(min-width: 1000px) {
+      margin-left: 150px;
+      margin-right: 150px;
+    }
+  }
+
+  @mixin tier-style {
+
+    margin: auto;
+    max-width: 700px;
+    padding: 1rem 7px;
+    @media(min-width: 600px) {
+      padding: 3rem 6rem;
+
+    }
+
+  }
+
+// общие классы
+
+
+// используется для expects__list-item-content, ( и раньше использовалось еще для  expects__switch-el)
+.shown {
+  display: inline-block;
+}
+.hidden {
+  display: none;
+}
+/*
+  можно было бы указать подобным образом,
+   но это будет +1 лишний класс с длинным сложным названием,
+   который придется придумывать и добавлять для каждого элементта, который нуждается в подобном функционале
+
+  .expects__switch-el_shown, expects__list-item-content_shown { //модификатор по БЭМ
+    display: inline-block;
+  }
+  .expects__switch-el_hidden, expects__list-item-content_hidden { //модификатор по БЭМ
+    display: none;
+  }
+ */
+
+
+.tier1 {
+    @include tier-style;
+    background: $main-bg;
+
+  }
+
+// БЭМ не запрещает вложенные селекторы, но рекомендует свести из использование к минимуму
+
+.personal { // блок по БЭМ
+  text-align: center;
+
+  .personal__name {// элемент по БЭМ
+    @include heading-style;
+    line-height: 1rem;
+    text-transform: capitalize;
+  }
+  .personal__about {// элемент по БЭМ
+    @include text-style1;
+    font-weight: bold;
+  }
+
+  .personal__photo { // элемент по БЭМ
+    width: 140px;
+    height: 140px;
+    border-radius: 170px;
+
+    @media(min-width: 700px) {
+      width: 340px;
+      height: 340px;
+    }
+
+    }
+
+  .personal__email-btn {
+    @include btn-default-style;
+  }
+
+}
+
+
+.tier2 {
+  @include tier-style;
+  background: $bg2;
+
+}
+
+.expects {
+
+  text-align: left;
+  width: 100%;
+  padding-bottom: .3rem;
+
+  @media(min-width: 600px) {
+    padding-bottom: 3rem;
+  }
+
+
+  .expects__header {
+    @include subheading-style;
+    line-height: 1rem;
+    text-transform: capitalize;
+    @media(max-width: 400px) {
+      font-size: 28px;
+      line-height: 30px;
+    }
+  }
+
+  .expects__list-item {
+    list-style: none;
+    position: relative;
+  }
+
+    //изначально на маленьких размереах экрана блок располагается по всей ширине:  width: 100%;
+    @media(min-width: 600px) and (max-width: 800px) {
+      width: 70%;
+    }
+    @media(min-width: 800px) {
+      width: 36rem;
+    }
+
+
+
+  .expects__list {
+    padding-left: 0;
+  }
+
+  // специально, чтобы сработал transition при hover
+  .expects__switch-el-open {
+    opacity: 1;
+    transition: opacity .7s;
+  }
+  .expects__switch-el-close {
+    opacity: 0;
+    transition: opacity .7s;
+  }
+
+    .expects__list-item-heading {
+      @include  large-text-style;
+      color: $clr4;
+
+      &:hover {
+        cursor: pointer;
+        color: $clr1;
+
+        &+.expects__list-item-content {
+          display: block;
+        }
+
+        .expects__switch-el-close {
+          //display: block;
+          opacity: 1;
+        }
+        .expects__switch-el-open {
+          //display: none;
+          opacity: 0;
+        }
+
+      }
+
+      &:active {
+        color: $opclr4;
+      }
+
+
+    }
+
+  .expects__switch-el {
+    @include text-style1;
+    font-size: 24px;
+    position: absolute;
+    top:0;
+    right: 0;
+  }
+
+  .expects__switch-el-open {
+    color: $clr4;
+  }
+
+  .expects__switch-el-close {
+    color: $clr1;
+  }
+
+  .expects__list-item-content {
+    @include text-style1;
+  }
+
+
+} // end of .expects
+
+
+// tier3
+
+.tier3 {
+
+  @include  tier-style;
+  background: $bg1;
+}
+
+.portfolio {
+  text-align: center;
+
+  .portfolio__heading {
+    @include subheading-style;
+    color: $clr3;
+    margin-bottom: 0;
+  }
+
+  .portfolio__subheading {
+    @include text-style1;
+    color: $clr3;
+  }
+
+}
+
+.portfolio__work {
+  padding: 1rem 0;
+
+  .work-title {
+    @include large-text-style;
+    color: $clr3;
+    font-weight: lighter;
+    margin-bottom: 0;
+  }
+
+  .work-link-container {
+    margin-top: .3rem;
+
+    .work-link {
+
+      text-decoration: none;
+      @include text-style1;
+      color: $clr5;
+      transition: color 1s;
+
+      &:hover {
+      color: $clr6;
+      text-decoration: underline;
+      }
+    }
+  }
+
+
+  .work-preview {
+    @include text-style2;
+    color: $clr3;
+    vertical-align: top;
+
+    .preview-pic-container {
+      border-radius: 1rem;
+      overflow: hidden;
+      .preview-pic {
+        width: 100%;
+      }
+
+    }
+    .work-desc {
+      display: block;
+      width: 100%;
+      text-align: justify;
+      @media(min-width: 700px) {
+        display: inline-block;
+        width: 70%;
+      }
+    }
+
+
+
+    .nav-bullets {
+      display: none;
+      width: 25%;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      vertical-align: top;
+      @media(min-width: 700px) {
+        display: inline-block;
+      }
+      .bullet {
+        display: inline-block;
+        margin-right: 5px;
+        margin-top: 5px;
+        width: .5rem;
+        height: .5rem;
+        border-radius: .5rem;
+        background: #fff;
+        box-sizing: border-box;
+        transition: background-color 1s, border 1s ;
+        &.active {
+          background: $clr2 ;
+          border: 1px solid #71abff;
+
+        }
+        &:hover {
+          background: #71abff;
+          cursor:pointer;
+        }
+      }
+    }
+
+  }
+
+}
+
+
+.tier4 {
+  @include tier-style;
+  background: $main-bg;
+
+}
+
+.contact {
+  text-align: center;
+  .contact__heading {
+    @include subheading-style;
+    text-transform: capitalize;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    @media(max-width: 400px) {
+      font-size: 28px;
+      line-height: 30px;
+    }
+
+  }
+
+
+
+  .contact__links {
+    padding: 0;
+    margin: 0;
+
+    .link {
+      display: inline-block;
+      list-style: none;
+      padding-right: 10px;
+
+
+    }
+
+    .link-icon {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+
+      &:active {
+        opacity: .7;
+      }
+    }
+  }
+
+  .contact__info {
+    @include text-style1;
+  }
+
+  .contact__form {
+    .name {
+      @include input-style;
+      margin-right: 10px;
+    }
+    .email {
+      @include input-style;
+    }
+
+    .message {
+      @include input-style;
+      width:90%;
+      height: 6rem;
+      margin-bottom: 1rem;
+      text-align: left;
+      @media(min-width: 650px) {
+        width: 90%;
+        height: 12rem;
+        margin-top: 1rem;
+
+      }
+    }
+
+    .btn {
+      @include btn-default-style;
+      border: none;
+      cursor: pointer;
+      width: 90%;
+      margin: .5rem auto;
+    }
+
+    .btn-attach {
+      @include text-style2;
+      font-weight: bold;
+      background: $main-bg;
+      border: 1px solid gray;
+      color:$clr4;
+      transition: color 1s;
+      &:hover {
+        background: $main-bg;
+        color: $clr1;
+      }
+    }
+
+  }
+
+
+}
+
