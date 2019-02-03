@@ -63,6 +63,10 @@ $btn-hover-bg: #000;
   @mixin user-input-style {
     font: 18px/24px "PT Sans", sans-serif;
     color: $clr1;
+
+
+
+
   }
 
   @mixin text-style1 {
@@ -81,7 +85,7 @@ $btn-hover-bg: #000;
 // button style
 @mixin btn-default-style {
   background: $btn-bg;
-  padding: .5rem 1.5rem;
+  padding: 1.5rem 1.5rem;
   opacity: 1;
   text-decoration: none;
   @include btn-text-style;
@@ -111,6 +115,13 @@ $btn-hover-bg: #000;
     width: 40%;
     margin-top: 2rem;
     margin-bottom: 1rem;
+  }
+
+
+  @media(max-device-width: 768px) {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
   }
 
 }
@@ -194,10 +205,20 @@ $btn-hover-bg: #000;
     @include heading-style;
     line-height: 1rem;
     text-transform: capitalize;
+    @media(max-device-width: 1024px) {
+      font-size: 5rem;
+    }
+
   }
   .personal__about {// элемент по БЭМ
     @include text-style1;
     font-weight: bold;
+    margin-bottom: 2rem;
+    @media(max-device-width: 1024px) {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+
   }
 
   .personal__photo { // элемент по БЭМ
@@ -209,19 +230,30 @@ $btn-hover-bg: #000;
       width: 340px;
       height: 340px;
     }
-
-    }
+  }
 
   .personal__email-btn {
     @include btn-default-style;
+    padding: 1rem;
+    @media(max-device-width: 1024px) {
+      font-size: 3rem;
+      font-weight: normal;
+    }
+
   }
 
 }
 
 
+
 .tier2 {
   @include tier-style;
   background: $bg2;
+
+
+  @media(max-device-width: 1024px) {
+    //padding-top: 5rem;
+  }
 
 }
 
@@ -243,6 +275,12 @@ $btn-hover-bg: #000;
     @media(max-width: 400px) {
       font-size: 28px;
       line-height: 30px;
+
+    }
+
+    @media(max-device-width: 1024px) {
+      font-size: 4rem;
+      padding-top: 2rem;
     }
   }
 
@@ -278,6 +316,17 @@ $btn-hover-bg: #000;
     .expects__list-item-heading {
       @include  large-text-style;
       color: $clr4;
+      padding-top: .7rem;
+      padding-bottom: .5rem;
+      border-top: 1px solid gray;
+
+      @media(max-device-width: 1024px) {
+        font-size: 3rem;
+        padding-bottom: 1rem;
+        padding-top: 2rem;
+      }
+
+
 
       &:hover {
         cursor: pointer;
@@ -309,8 +358,13 @@ $btn-hover-bg: #000;
     @include text-style1;
     font-size: 24px;
     position: absolute;
-    top:0;
+    top: 1rem;
     right: 0;
+
+    @media(max-device-width: 1024px) {
+      font-size: 3rem;
+      top:2rem;
+    }
   }
 
   .expects__switch-el-open {
@@ -323,6 +377,14 @@ $btn-hover-bg: #000;
 
   .expects__list-item-content {
     @include text-style1;
+
+    @media(max-device-width: 1024px) {
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+
+
+
   }
 
 
@@ -340,15 +402,29 @@ $btn-hover-bg: #000;
 .portfolio {
   text-align: center;
 
+
+  @media(max-device-width: 1024px) {
+    font-size: 3rem;
+  }
+
   .portfolio__heading {
     @include subheading-style;
     color: $clr3;
     margin-bottom: 0;
+
+    @media(max-device-width: 1024px) {
+      font-size: 4rem;
+    }
   }
 
   .portfolio__subheading {
     @include text-style1;
     color: $clr3;
+
+    @media(max-device-width: 1024px) {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
   }
 
 }
@@ -361,6 +437,11 @@ $btn-hover-bg: #000;
     color: $clr3;
     font-weight: lighter;
     margin-bottom: 0;
+
+    @media(max-device-width: 1024px) {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
   }
 
   .work-link-container {
@@ -372,6 +453,11 @@ $btn-hover-bg: #000;
       @include text-style1;
       color: $clr5;
       transition: color 1s;
+
+      @media(max-device-width: 1024px) {
+        font-size: 2rem;
+
+      }
 
       &:hover {
       color: $clr6;
@@ -402,6 +488,12 @@ $btn-hover-bg: #000;
         display: inline-block;
         width: 70%;
       }
+
+      @media(max-device-width: 1024px) {
+        font-size: 2.5rem;
+        line-height: 3rem;
+        width: 100%;
+      }
     }
 
 
@@ -413,8 +505,14 @@ $btn-hover-bg: #000;
       padding: 0;
       margin: 0;
       vertical-align: top;
-      @media(min-width: 700px) {
+
+
+      @media  (min-width: 1024px) {
         display: inline-block;
+      }
+
+      @media (max-width: 1024px) {
+        display: none;
       }
       .bullet {
         display: inline-block;
@@ -487,20 +585,40 @@ $btn-hover-bg: #000;
       &:active {
         opacity: .7;
       }
+
+
+      @media(max-device-width: 1024px) {
+       width: 7rem;
+       height: auto;
+        margin: 1rem;
+        }
     }
   }
 
   .contact__info {
     @include text-style1;
+
+    @media(max-device-width: 1024px) {
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
   }
 
   .contact__form {
     .name {
       @include input-style;
       margin-right: 10px;
+
+      @media(max-device-width: 1024px) {
+        font-size: 2rem;
+      }
     }
     .email {
       @include input-style;
+
+      @media(max-device-width: 1024px) {
+        font-size: 2rem;
+      }
     }
 
     .message {
@@ -515,6 +633,12 @@ $btn-hover-bg: #000;
         margin-top: 1rem;
 
       }
+
+
+      @media(max-device-width: 1024px) {
+        font-size: 2rem;
+
+      }
     }
 
     .btn {
@@ -523,6 +647,12 @@ $btn-hover-bg: #000;
       cursor: pointer;
       width: 90%;
       margin: .5rem auto;
+
+      @media(max-device-width: 1024px) {
+        padding: 2rem;
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+      }
     }
 
     .btn-attach {
@@ -535,6 +665,12 @@ $btn-hover-bg: #000;
       &:hover {
         background: $main-bg;
         color: $clr1;
+      }
+
+      @media(max-device-width: 1024px) {
+        padding: 2rem;
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
       }
     }
 
