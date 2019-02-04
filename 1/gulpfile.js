@@ -44,7 +44,7 @@ function styles() {
         .pipe(sass().on('error', sass.logError)) // компилируем sass в css и отслеживаем ошибки
         .pipe(autoprefixer({ browsers: ['last 50 versions'], cascade: false }) ) // выставляем необходимые вендорные префиксы для браузеров
         .pipe(cleanCss()) // минификация css
-        .pipe(gulp.dest(paths.styles.dist))  // направляе скомпилированные из sass css-файлы в указанную папку
+        .pipe(gulp.dest("app/css/"))  // направляе скомпилированные из sass css-файлы в указанную папку
         .pipe(gulp.dest(paths.styles.dist))  // направляе скомпилированные из sass css-файлы в указанную папку
         .pipe(browserSync.stream()); // перезагрузка страницы браузера
 }
